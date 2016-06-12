@@ -1,5 +1,8 @@
 # HZSearchBar
 自定义searcher，完全模仿系统样式
+
+看看效果图如下
+
 ![这里写图片描述](http://img.blog.csdn.net/20160612142814204)
 # 选择遵循协议 
   1. CustomsearchResultsUpdater 
