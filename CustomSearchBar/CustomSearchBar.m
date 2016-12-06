@@ -22,9 +22,6 @@
     self = [super initWithFrame:CGRectMake(origin.x, origin.y, SEMWIDTH, height)];
     if (self) {
         [self initView];
-        
-        
-        
     }
     return self;
 }
@@ -84,8 +81,8 @@
 
 -(void)cancleClick:(UIButton *)sender {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(CustomSearchBar:cancleButton:)]) {
-        [self.delegate CustomSearchBar:self cancleButton:sender];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(customSearchBar:cancleButton:)]) {
+        [self.delegate customSearchBar:self cancleButton:sender];
     }
     [self hidSearchBar:self];
 }
@@ -102,8 +99,8 @@
 
 - (void)textFieldDidChange:(UITextField *)textField
 {
-    if (self.searchResultsUpdater && [self.searchResultsUpdater respondsToSelector:@selector(CustomSearch:inputText:)]) {
-        [self.searchResultsUpdater CustomSearch:self inputText:textField.text];
+    if (self.searchResultsUpdater && [self.searchResultsUpdater respondsToSelector:@selector(customSearch:inputText:)]) {
+        [self.searchResultsUpdater customSearch:self inputText:textField.text];
         [self.searchBarTableView reloadData];
     }
 }
@@ -126,12 +123,12 @@
     }
     NSIndexPath * path = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
     // 文字
-    if (self.DataSource && [self.DataSource respondsToSelector:@selector(CustomSearchBar:titleForRowAtIndexPath:)]) {
-        cell.textLabel.text = [self.DataSource CustomSearchBar:self titleForRowAtIndexPath:path];
+    if (self.DataSource && [self.DataSource respondsToSelector:@selector(customSearchBar:titleForRowAtIndexPath:)]) {
+        cell.textLabel.text = [self.DataSource customSearchBar:self titleForRowAtIndexPath:path];
     }
     
-    if (self.DataSource && [self.DataSource respondsToSelector:@selector(CustomSearchBar:imageNameForRowAtIndexPath:)]) {
-        NSString *imageName = [self.DataSource CustomSearchBar:self imageNameForRowAtIndexPath:path];
+    if (self.DataSource && [self.DataSource respondsToSelector:@selector(customSearchBar:imageNameForRowAtIndexPath:)]) {
+        NSString *imageName = [self.DataSource customSearchBar:self imageNameForRowAtIndexPath:path];
         cell.imageView.image = [UIImage imageNamed:imageName];
     }
     cell.textLabel.numberOfLines = 2;
@@ -143,8 +140,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath * path = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(CustomSearchBar:didSelectRowAtIndexPath:)]) {
-        [self.delegate CustomSearchBar:self didSelectRowAtIndexPath:path];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(customSearchBar:didSelectRowAtIndexPath:)]) {
+        [self.delegate customSearchBar:self didSelectRowAtIndexPath:path];
         [self hidSearchBar:self];
     }
 }

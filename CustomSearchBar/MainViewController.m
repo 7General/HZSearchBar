@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "CustomSearchBar.h"
 
+
 @interface MainViewController ()<CustomsearchResultsUpdater,CustomSearchBarDataSouce,CustomSearchBarDelegate>
 @property (nonatomic, strong) CustomSearchBar * customSearchBar;
 
@@ -76,7 +77,7 @@
 }
 
 /**第一步根据输入的字符检索 必须实现*/
--(void)CustomSearch:(CustomSearchBar *)searchBar inputText:(NSString *)inputText {
+-(void)customSearch:(CustomSearchBar *)searchBar inputText:(NSString *)inputText {
     [self.resultFileterArry removeAllObjects];
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",inputText];
     NSArray * arry = [self.myData filteredArrayUsingPredicate:predicate];
@@ -89,17 +90,17 @@
     return self.resultFileterArry.count;
 }
 // 设置显示没行的内容
--(NSString *)CustomSearchBar:(CustomSearchBar *)menu titleForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(NSString *)customSearchBar:(CustomSearchBar *)menu titleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.resultFileterArry[indexPath.row];
 }
-- (void)CustomSearchBar:(CustomSearchBar *)segment didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)customSearchBar:(CustomSearchBar *)segment didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"---->>>>>>>>>%ld",indexPath.row);
 }
 
--(void)CustomSearchBar:(CustomSearchBar *)segment cancleButton:(UIButton *)sender {
+-(void)customSearchBar:(CustomSearchBar *)segment cancleButton:(UIButton *)sender {
 
 }
--(NSString *)CustomSearchBar:(CustomSearchBar *)searchBar imageNameForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(NSString *)customSearchBar:(CustomSearchBar *)searchBar imageNameForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Search_noraml";
 }
 

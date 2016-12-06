@@ -19,7 +19,7 @@
 
 @required
 /**第一步根据输入的字符检索 必须实现*/
--(void)CustomSearch:(CustomSearchBar *)searchBar inputText:(NSString *)inputText;
+-(void)customSearch:(CustomSearchBar *)searchBar inputText:(NSString *)inputText;
 @end
 
 @protocol CustomSearchBarDataSouce <NSObject>
@@ -27,21 +27,21 @@
 // 设置显示列的内容
 -(NSInteger)searchBarNumberOfRowInSection;
 // 设置显示没行的内容
--(NSString *)CustomSearchBar:(CustomSearchBar *)searchBar titleForRowAtIndexPath:(NSIndexPath *)indexPath;
+-(NSString *)customSearchBar:(CustomSearchBar *)searchBar titleForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 
 @optional
 // 每行图片
--(NSString *)CustomSearchBar:(CustomSearchBar *)searchBar imageNameForRowAtIndexPath:(NSIndexPath *)indexPath;
+-(NSString *)customSearchBar:(CustomSearchBar *)searchBar imageNameForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @protocol CustomSearchBarDelegate <NSObject>
 @optional
 // 点击每一行的效果
-- (void)CustomSearchBar:(CustomSearchBar *)searchBar didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)customSearchBar:(CustomSearchBar *)searchBar didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
--(void)CustomSearchBar:(CustomSearchBar *)searchBar cancleButton:(UIButton *)sender;
+-(void)customSearchBar:(CustomSearchBar *)searchBar cancleButton:(UIButton *)sender;
 
 @end
 
